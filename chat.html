@@ -1,0 +1,262 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp-like Chat</title>
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <div id="chatApp">
+        <div id="sidebar">
+            <header>
+                <div id="profile">
+                    <img id="profilePic" src="your-profile-pic.jpg" alt="Profile Picture">
+                    <div id="profileInfo">
+                        <h2 id="userName">Your Name</h2>
+                        <p id="status">Your status</p>
+                    </div>
+                </div>
+                <button id="settingsBtn">&#9881;</button>
+            </header>
+            <input id="searchBar" type="text" placeholder="Search...">
+            <ul id="contacts">
+                <li>Contact 1</li>
+                <li>Contact 2</li>
+                <!-- Add more contacts as needed -->
+            </ul>
+        </div>
+
+        <div id="chatArea">
+            <div id="chatHeader">Select a Contact</div>
+            <div id="messages">
+                <!-- Chat messages go here -->
+            </div>
+            <div id="inputArea">
+                <input id="messageInput" type="text" placeholder="Type a message...">
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Page -->
+    <div id="settingsPage" style="display: none;">
+        <div class="settings-container">
+            <div class="settings-sidebar">
+                <div class="sidebar-header">
+                    <button id="backBtn" class="back-button"><i class="fas fa-arrow-left"></i></button>
+                     
+                </div>
+                <div class="profile-summary">
+                    <label for="profilePicInput">
+                        <img class="avatar" src="your-profile-pic.jpg" alt="Profile Picture">
+                    </label>
+                    <input type="file" id="profilePicInput" style="display: none;">
+                    <div>
+                        <h3 id="profileSummaryName">Your Name</h3>
+                        <p id="profileSummaryStatus">Your status</p>
+                    </div>
+                </div>
+                <ul>
+                    <li class="active" data-target="profileSettings"><i class="fas fa-user"></i> Profile</li>
+                    <li data-target="privacySettings"><i class="fas fa-lock"></i> Privacy</li>
+                    <li data-target="notificationSettings"><i class="fas fa-bell"></i> Notifications</li>
+                    <li data-target="securitySettings"><i class="fas fa-shield-alt"></i> Security</li>
+                    <li data-target="appearanceSettings"><i class="fas fa-paint-brush"></i> Appearance</li>
+                    <li data-target="advancedSettings"><i class="fas fa-cogs"></i> Advanced</li>
+                </ul>
+                <div class="sidebar-footer">
+                    <button class="logout-button">Log Out</button>
+                </div>
+            </div>
+            <div class="settings-content">
+                <div id="profileSettings" class="settings-section active">
+                    <h2>Profile Settings</h2>
+                    <div class="form-group">
+                        <label for="profileName">Name</label>
+                        <input type="text" id="profileName">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileStatus">Status</label>
+                        <input type="text" id="profileStatus">
+                    </div>
+                    <button class="save-button">Save</button>
+                </div>
+                <div id="privacySettings" class="settings-section">
+                    <h2>Privacy Settings</h2>
+                    <!-- Add your privacy settings options here -->
+                    <div class="form-group">
+                        <label for="privacyOption1">Last Seen</label>
+                        <select id="privacyOption1">
+                            <option value="everyone">Everyone</option>
+                            <option value="contacts">My Contacts</option>
+                            <option value="none">Nobody</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="privacyOption2">Profile Photo</label>
+                        <select id="privacyOption2">
+                            <option value="everyone">Everyone</option>
+                            <option value="contacts">My Contacts</option>
+                            <option value="none">Nobody</option>
+                        </select>
+                    </div>
+                    <button class="save-button">Save</button>
+                </div>
+                <div id="notificationSettings" class="settings-section">
+                    <h2>Notification Settings</h2>
+                    <!-- Add your notification settings options here -->
+                    <div class="form-group">
+                        <label for="messageNotifications">Message Notifications</label>
+                        <select id="messageNotifications">
+                            <option value="on">On</option>
+                            <option value="off">Off</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="groupNotifications">Group Notifications</label>
+                        <select id="groupNotifications">
+                            <option value="on">On</option>
+                            <option value="off">Off</option>
+                        </select>
+                    </div>
+                    <button class="save-button">Save</button>
+                </div>
+                <div id="securitySettings" class="settings-section">
+                    <h2>Security Settings</h2>
+                    <!-- Add your security settings options here -->
+                    <div class="form-group">
+                        <label for="twoStepVerification">Two-Step Verification</label>
+                        <select id="twoStepVerification">
+                            <option value="enabled">Enabled</option>
+                            <option value="disabled">Disabled</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="encryption">End-to-End Encryption</label>
+                        <input type="text" id="encryption" value="Enabled" readonly>
+                    </div>
+                    <button class="save-button">Save</button>
+                </div>
+                <div id="appearanceSettings" class="settings-section">
+                    <h2>Appearance Settings</h2>
+                    <!-- Add your appearance settings options here -->
+                    <div class="form-group">
+                        <label for="theme">Theme</label>
+                        <select id="theme">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fontSize">Font Size</label>
+                        <select id="fontSize">
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                    <button class="save-button">Save</button>
+                </div>
+                <div id="advancedSettings" class="settings-section">
+                    <h2>Advanced Settings</h2>
+                    <!-- Add your advanced settings options here -->
+                    <div class="form-group">
+                        <label for="backupFrequency">Chat Backup Frequency</label>
+                        <select id="backupFrequency">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="never">Never</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataUsage">Data Usage</label>
+                        <select id="dataUsage">
+                            <option value="wifi">Wi-Fi Only</option>
+                            <option value="cellular">Cellular Data</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    <button class="save-button">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/chat.js"></script>
+    <script>
+        // Toggle between chat app and settings page
+        document.getElementById('settingsBtn').addEventListener('click', function() {
+            document.getElementById('chatApp').style.display = 'none';
+            document.getElementById('settingsPage').style.display = 'flex';
+        });
+
+        // Back button to return to chat app
+        document.getElementById('backBtn').addEventListener('click', function() {
+            document.getElementById('settingsPage').style.display = 'none';
+            document.getElementById('chatApp').style.display = 'flex';
+        });
+
+        // Toggle settings sections
+        document.querySelectorAll('.settings-sidebar ul li').forEach(item => {
+            item.addEventListener('click', function () {
+                // Remove active class from all list items
+                document.querySelectorAll('.settings-sidebar ul li').forEach(li => {
+                    li.classList.remove('active');
+                });
+                // Add active class to the clicked item
+                this.classList.add('active');
+
+                // Hide all settings sections
+                document.querySelectorAll('.settings-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the selected section
+                const sectionId = this.getAttribute('data-target');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+
+        // Save button logic
+        document.querySelectorAll('.save-button').forEach(button => {
+            button.addEventListener('click', function () {
+                alert('Settings saved successfully!');
+                // Add your save logic here
+            });
+        });
+
+        // Change profile picture
+        document.getElementById('profilePicInput').addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profilePic').src = e.target.result;
+                    document.querySelector('.avatar').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Save profile name and status
+        document.querySelector('.save-button').addEventListener('click', function () {
+            const newName = document.getElementById('profileName').value;
+            const newStatus = document.getElementById('profileStatus').value;
+            if (newName) {
+                document.getElementById('userName').textContent = newName;
+                document.getElementById('profileSummaryName').textContent = newName;
+            }
+            if (newStatus) {
+                document.getElementById('status').textContent = newStatus;
+                document.getElementById('profileSummaryStatus').textContent = newStatus;
+            }
+        });
+    </script>
+</body>
+
+</html>

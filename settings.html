@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <div class="settings-sidebar">
+            <div class="profile-summary">
+                <img src="user-avatar.jpg" alt="User Avatar" class="avatar">
+                <h3>John Doe</h3>
+                <p>Online</p>
+            </div>
+            <ul>
+                <li class="active" data-section="profile"><i class="fas fa-user"></i> Profile</li>
+                <li data-section="privacy"><i class="fas fa-shield-alt"></i> Privacy</li>
+                <li data-section="notifications"><i class="fas fa-bell"></i> Notifications</li>
+                <li data-section="security"><i class="fas fa-lock"></i> Security</li>
+                <li data-section="appearance"><i class="fas fa-paint-brush"></i> Appearance</li>
+                <li data-section="advanced"><i class="fas fa-cogs"></i> Advanced</li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+        <div class="settings-content">
+            <div class="settings-section" id="profile">
+                <h2>Profile Settings</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="profilePicture">Profile Picture</label>
+                        <input type="file" id="profilePicture" name="profilePicture">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" id="status" name="status" placeholder="Enter your status">
+                    </div>
+                    <div class="form-group">
+                        <label for="themeColor">Theme Color</label>
+                        <input type="color" id="themeColor" name="themeColor" value="#42ce73">
+                    </div>
+                    <button type="submit" class="save-button">Save Changes</button>
+                </form>
+            </div>
+            <!-- Additional Sections Here -->
+        </div>
+    </div>
+    <script src="../js/settings.js"></script>
+</body>
+</html>
